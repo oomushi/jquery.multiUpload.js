@@ -87,7 +87,7 @@
       },
       remove: function(el,src){},                 // Remove element event
       add: function(el,src){},                    // Add element event
-      id_gen: function(el){                       // New name generator
+      name_gen: function(el){                       // New name generator
         return el.closest().children('.'+options.list_class).length;
       }
     };
