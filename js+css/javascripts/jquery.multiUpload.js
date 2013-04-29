@@ -1,3 +1,4 @@
+// https://github.com/sadjehwty/jquery.multiUpload.js
 /**
  * Multiple file upload element (jQuery version)
  
@@ -67,7 +68,6 @@
 
     var options = {
       max: 0,                                     // Max number of elements (default = 0 = unlimited)
-      name_suffix_template: '_{id}',              // Template for appending to file name. Use {id} to insert row number (default = '_{id}')
       show_filename_only: false,                  // Whether to strip path info from file name when displaying in list (default = false)
       remove_empty_element: true,                 // Whether or not to remove the (empty) 'extra' element when the form is submitted (default = true)
       container_tag: 'div',                       // Root container tag (default: div)
@@ -88,7 +88,10 @@
       remove: function(el,src){},                 // Remove element event
       add: function(el,src){},                    // Add element event
       name_gen: function(el){                       // New name generator
-        return el.closest().children('.'+options.list_class).length;
+        return '[]';
+      },
+      id_gen: function(el){
+        return el.attr("id")+'_'+(el.closest().children('.'+options.list_class).length+1);
       }
     };
 
@@ -151,10 +154,11 @@
             display: 'none'
           });
           $list.before($new); // Add new element to page
+          // Set the name
+          $(this).attr('name',options.name_gen($(this)));
+          $(this).attr('id',options.id_gen($(this)));
           options.add($line,$(this));
         });
-        // Set the name
-        element.attr('name',name + options.name_suffix_template.replace( /\{id\}/, options.name_gen(element) ));
       }
       
       init($original,true);
