@@ -1,4 +1,4 @@
-// https://github.com/oomushi/jquery.multiUpload.js
+// http://oomushi.github.io/jquery.multiUpload.js
 /**
  * Multiple file upload element (jQuery version)
  
