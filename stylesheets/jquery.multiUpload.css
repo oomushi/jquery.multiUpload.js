@@ -11,8 +11,10 @@ div.mfu_container ul.mfu_list li.mfu_element:hover{
   background-color: #ff0;
   border: 1px dashed #000;
 }
-div.mfu_container ul.mfu_list img{
+div.mfu_container ul.mfu_list span.mfu_remove{
   float:right;
-  margin: 3px;
+  padding: 0 2px 1px 16px;
   cursor:pointer;
+  display: inline-block;
+  background: url('/images/mfu.png') left center no-repeat;
 }

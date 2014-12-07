@@ -77,13 +77,12 @@
       list_class: 'mfu_list',                     // Elements container class (default: mfu_list)
       element_class: 'mfu_element',               // Element class (default: mfu_element)
       remove_label: 'remove',                     // Action remove label (default: remove)
-      remove_img: '/mfu_remove.png',              // Action remove image (default: mfu_remove.png)
       remove_class: 'mfu_remove',                 // Action remove class (default: mfu_remove)
       max_overflow: function(){                   // Max number of elements overflow event
         alert( 'You may not upload more than ' + options.max + ' files'  );
       },
       remove_confirm: function(element){          // Remove element confirm
-        return confirm( 'Are you sure you want to remove the item\r\n' +  element.parent().children('.mfu_name').text() + '\r\nfrom the upload queue?' )
+        return confirm( 'Are you sure you want to remove the item\r\n' +  element.parent().children('.mfu_name').text() + '\r\nfrom the upload queue?' );
       },
       remove: function(el,src){},                 // Remove element event
       add: function(el,src){},                    // Add element event
@@ -122,13 +121,8 @@
           var $name = $('<span>').addClass("mfu_name")
                                  .text(name);
           var $line = $('<'+options.element_tag+'>').addClass(options.element_class);
-          var $rm;
-          if(options.remove_img)
-            $rm = $('<img>').attr('src',options.remove_img)
-                            .attr('alt',options.remove_label);
-          else
-            $rm = $('<span>').text(options.remove_label);
-          $rm.attr('title',options.remove_label)
+          var $rm= $('<span>').text("\u2009")
+             .attr('title',options.remove_label)
              .addClass(options.remove_class)
              .click(function(){
                 var $line = $(this).closest(options.element_tag);
@@ -173,5 +167,5 @@
         });
       }
     });
-  }
+  };
 })(jQuery);
