@@ -103,7 +103,11 @@ need for multiple file input elements in a form.
               name = name.substring(name.lastIndexOf("//") + 1)  if name.indexOf("//") >= 0
             $name = $("<span>").addClass("mfu_name").text(name)
             $line = $("<" + options.element_tag + ">").addClass(options.element_class)
+<<<<<<< HEAD
             $rm = $("<span>").text("\u2009").attr("title", options.remove_label).addClass(options.remove_class).click(->
+=======
+            $rm = $("<span>").text(" ").attr("title", options.remove_label).addClass(options.remove_class).click(->
+>>>>>>> 67b4b03e5247569473d563ecab388afd6b823514
               $line = $(this).closest(options.element_tag)
               $element = $line.find(":input[type=\"file\"]").first()
               options.remove $(this), $element
